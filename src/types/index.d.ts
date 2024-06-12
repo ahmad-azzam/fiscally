@@ -328,3 +328,7 @@ declare interface getBankProps {
 declare interface getBankByAccountIdProps {
   accountId: string;
 }
+
+declare interface AnimatedCounterProps {
+  amount: number;
+}

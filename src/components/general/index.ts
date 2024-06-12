@@ -6,3 +6,5 @@ export { default as GenSidebar } from "./sidebar";
 export { default as GenMobileNav } from "./mobile-nav";
 export { default as GenRightSidebar } from "./right-sidebar";
 export { default as GenBankCard } from "./bank-card";
+export { default as GenAuthForm } from "./auth-form";
+export { default as GenInput } from "./input";

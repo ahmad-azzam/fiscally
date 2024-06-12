@@ -1,4 +1,8 @@
-import { GenHeader, GenTotalBalance } from "@/components/general";
+import {
+  GenHeader,
+  GenRightSidebar,
+  GenTotalBalance,
+} from "@/components/general";
 import React from "react";
 
 const Home = () => {
@@ -19,7 +23,18 @@ const Home = () => {
             totalCurrentBalance={1250.35}
           />
         </header>
+        RECENT TRANSACTION
       </div>
+
+      <GenRightSidebar
+        user={{
+          firstName: "Baba",
+          lastName: "Yaga",
+          email: "baba.yaga@mail.com",
+        }}
+        transactions={[]}
+        banks={[{ currentBalance: 123.35 }, { currentBalance: 3000 }]}
+      />
     </section>
   );
 };

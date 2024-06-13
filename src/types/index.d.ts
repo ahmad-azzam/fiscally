@@ -1,9 +1,5 @@
 /* eslint-disable no-unused-vars */
 
-import { authFormSchema } from "@/lib/utils";
-import { Control, FieldPath } from "react-hook-form";
-import { z } from "zod";
-
 declare type SearchParamProps = {
   params: { [key: string]: string };
   searchParams: { [key: string]: string | string[] | undefined };
@@ -335,15 +331,4 @@ declare interface getBankByAccountIdProps {
 
 declare interface AnimatedCounterProps {
   amount: number;
-}
-
-declare interface AuthFormProps {
-  type: "sign-in" | "sign-up";
-}
-
-declare interface GenInputProps {
-  control: Control<z.infer<typeof authFormSchema>>;
-  name: FieldPath<z.infer<typeof authFormSchema>>;
-  label: string;
-  placeholder: string;
 }

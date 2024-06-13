@@ -7,14 +7,27 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { GenInputProps } from "@/types";
+import { authFormSchema } from "@/lib/utils";
 import React from "react";
+import { Control, FieldPath } from "react-hook-form";
+import { z } from "zod";
+
+const formSchema = authFormSchema("sign-up");
+
+interface GenInputProps {
+  control: Control<z.infer<typeof formSchema>>;
+  name: FieldPath<z.infer<typeof formSchema>>;
+  label: string;
+  placeholder: string;
+  type?: React.HTMLInputTypeAttribute;
+}
 
 const GenInput: React.FC<GenInputProps> = ({
   control,
   label,
   name,
   placeholder,
+  type,
 }) => {
   return (
     <FormField
@@ -28,6 +41,7 @@ const GenInput: React.FC<GenInputProps> = ({
               <Input
                 placeholder={placeholder}
                 className="input-class"
+                type={type}
                 {...field}
               />
             </FormControl>

@@ -3,9 +3,12 @@ import {
   GenRightSidebar,
   GenTotalBalance,
 } from "@/components/general";
+import { getLoggedInUser } from "@/lib/actions/user.actions";
 import React from "react";
 
-const Home = () => {
+const Home = async () => {
+  const user = await getLoggedInUser();
+
   return (
     <section className="home">
       <div className="home-content">
@@ -27,11 +30,7 @@ const Home = () => {
       </div>
 
       <GenRightSidebar
-        user={{
-          firstName: "Baba",
-          lastName: "Yaga",
-          email: "baba.yaga@mail.com",
-        }}
+        user={user as any}
         transactions={[]}
         banks={[{ currentBalance: 123.35 }, { currentBalance: 3000 }]}
       />

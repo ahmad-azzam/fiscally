@@ -14,7 +14,7 @@ const GenBankCard: React.FC<CreditCardProps> = ({
         <div className="bank-card_content">
           <div className="">
             <h1 className="text-16 font-semibold text-white">
-              {account.name || "Guest"}
+              {userName || "Guest"}
             </h1>
             <p className="font-ibm-plex-serif font-black text-white">
               {formatAmount(account.currentBalance)}

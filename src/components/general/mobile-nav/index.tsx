@@ -12,6 +12,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { sidebarLinks } from "@/constant";
 import { cn } from "@/lib/utils";
+import GenFooter from "../footer";
 
 const GenMobileNav: React.FC<MobileNavProps> = ({ user }) => {
   const pathname = usePathname();
@@ -83,8 +84,8 @@ const GenMobileNav: React.FC<MobileNavProps> = ({ user }) => {
                 })}
                 USER
               </nav>
+              <GenFooter user={user} type="mobile" />
             </div>
-            FOOTER
           </nav>
         </SheetContent>
       </Sheet>

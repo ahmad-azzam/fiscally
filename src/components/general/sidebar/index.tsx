@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import GenFooter from "../footer";
 
 const GenSidebar: React.FC<SidebarProps> = ({ user }) => {
   const pathname = usePathname();
@@ -50,7 +51,8 @@ const GenSidebar: React.FC<SidebarProps> = ({ user }) => {
         })}
         USER
       </nav>
-      FOOTER
+
+      <GenFooter user={user} />
     </section>
   );
 };

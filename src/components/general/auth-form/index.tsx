@@ -13,6 +13,7 @@ import { authFormSchema } from "@/lib/utils";
 import GenInput from "../input";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { signIn, signUp } from "@/lib/actions/user.actions";
 
 interface AuthFormProps {
   type: "sign-in" | "sign-up";
@@ -31,6 +32,14 @@ const GenAuthForm: React.FC<AuthFormProps> = ({ type }) => {
     defaultValues: {
       email: "",
       password: "",
+      address1: "",
+      city: "",
+      dob: "",
+      firstName: "",
+      lastName: "",
+      postalCode: "",
+      ssn: "",
+      state: "",
     },
   });
 
@@ -40,16 +49,16 @@ const GenAuthForm: React.FC<AuthFormProps> = ({ type }) => {
 
     try {
       if (type === "sign-in") {
-        // const response = await signIn({
-        //   email: data.email,
-        //   password: data.password
-        // })
-        // if(response) router.push('/')
+        const response = await signIn({
+          email: data.email,
+          password: data.password
+        })
+        if(response) router.push('/')
       }
 
       if (type === "sign-up") {
-        // const newUser = await signUp(data)
-        // setUser(newUser)
+        const newUser = await signUp(data);
+        setUser(newUser);
       }
     } catch (error) {
       console.log(error);

@@ -17,7 +17,7 @@ const Home = async () => {
             subtext="Access and manage your account and transaction efficiently."
             title="Welcome"
             type="greeting"
-            user="Guest"
+            user={user?.name}
           />
 
           <GenTotalBalance

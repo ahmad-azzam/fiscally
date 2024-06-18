@@ -14,6 +14,7 @@ import GenInput from "../input";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { signIn, signUp } from "@/lib/actions/user.actions";
+import { GenPlaidLink } from "..";
 
 interface AuthFormProps {
   type: "sign-in" | "sign-up";
@@ -51,13 +52,26 @@ const GenAuthForm: React.FC<AuthFormProps> = ({ type }) => {
       if (type === "sign-in") {
         const response = await signIn({
           email: data.email,
-          password: data.password
-        })
-        if(response) router.push('/')
+          password: data.password,
+        });
+        if (response) router.push("/");
       }
 
       if (type === "sign-up") {
-        const newUser = await signUp(data);
+        const userData = {
+          email: data.email,
+          password: data.password,
+          firstName: data.firstName!,
+          lastName: data.lastName!,
+          address1: data.address1!,
+          city: data.city!,
+          state: data.state!,
+          postalCode: data.postalCode!,
+          dob: data.dob!,
+          ssn: data.ssn!,
+        };
+
+        const newUser = await signUp(userData);
         setUser(newUser);
       }
     } catch (error) {
@@ -97,7 +111,9 @@ const GenAuthForm: React.FC<AuthFormProps> = ({ type }) => {
       </header>
 
       {user ? (
-        <div className="flex flex-col gap-4">{/* plaid link */}</div>
+        <div className="flex flex-col gap-4">
+          <GenPlaidLink user={user} variant="primary" />
+        </div>
       ) : (
         <>
           <Form {...form}>

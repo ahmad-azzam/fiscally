@@ -9,3 +9,4 @@ export { default as GenBankCard } from "./bank-card";
 export { default as GenAuthForm } from "./auth-form";
 export { default as GenInput } from "./input";
 export { default as GenFooter } from "./footer";
+export { default as GenPlaidLink } from "./plaid-link";
